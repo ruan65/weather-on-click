@@ -1,0 +1,43 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/info_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        >
+        <ImageView
+            android:id="@+id/icon_weather_cond"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/_grey"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_below="@+id/info_frame"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.activities.MapsActivity"
+        />
+
+</RelativeLayout>
+
+

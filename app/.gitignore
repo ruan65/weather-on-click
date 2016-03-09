@@ -1,0 +1,6 @@
+*.apk
+/build
+gradle.properties
+/src/release
+/src/debug
+
