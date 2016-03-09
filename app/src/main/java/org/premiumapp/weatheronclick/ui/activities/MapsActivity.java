@@ -22,6 +22,7 @@ import org.premiumapp.weatheronclick.utils.Cv;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MapsActivity extends FragmentActivity implements MapsView,
         OnMapReadyCallback, OnMapClickListener {
@@ -30,6 +31,7 @@ public class MapsActivity extends FragmentActivity implements MapsView,
 
     @Bind(R.id.tv_display) TextView tvDisplay;
     @Bind(R.id.icon_weather_cond) ImageView ivIcon;
+    @Bind(R.id.menu_more) ImageView menuMore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class MapsActivity extends FragmentActivity implements MapsView,
                 .getMapAsync(this);
 
         presenter = new MapsPresenterImp(this);
-        registerForContextMenu(tvDisplay);
+        registerForContextMenu(menuMore);
     }
 
     @Override
@@ -58,7 +60,8 @@ public class MapsActivity extends FragmentActivity implements MapsView,
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
 
-        String unit = PreferenceManager.getDefaultSharedPreferences(this).getString(Cv.KEY_UNITS, Cv.C);
+        String unit = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(Cv.KEY_UNITS, Cv.C);
         menu.add(unit.equals(Cv.C) ? Cv.F : Cv.C);
         super.onCreateContextMenu(menu, v, menuInfo);
     }
@@ -104,5 +107,10 @@ public class MapsActivity extends FragmentActivity implements MapsView,
     @Override
     public ImageView getIconIv() {
         return ivIcon;
+    }
+
+    @OnClick(R.id.menu_more)
+    public void menu(View v) {
+        openContextMenu(v);
     }
 }

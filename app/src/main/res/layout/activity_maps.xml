@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:background="@color/colorPrimary"
         >
         <ImageView
@@ -20,11 +21,18 @@
 
         <TextView
             android:id="@+id/tv_display"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:textColor="@color/_grey"
+            android:textColor="@color/_white"
             android:textSize="20sp"
+            />
+        <ImageView
+            android:id="@+id/menu_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_vert_white_24dp"
             />
 
     </LinearLayout>

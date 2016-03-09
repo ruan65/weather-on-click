@@ -5,8 +5,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.OkHttpClient;
 import com.squareup.picasso.Picasso;
 
 import org.premiumapp.weatheronclick.BuildConfig;
@@ -16,8 +14,6 @@ import org.premiumapp.weatheronclick.network.WeatherApiService;
 import org.premiumapp.weatheronclick.rx.RxBus;
 import org.premiumapp.weatheronclick.ui.activities.MapsView;
 import org.premiumapp.weatheronclick.utils.Cv;
-
-import java.io.IOException;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -76,6 +72,8 @@ public class MapsPresenterImp implements MapsPresenterType {
     @Override
     public void setUnits(String units) {
         this.units = units;
+        display.setText("");
+        iconIv.setImageDrawable(null);
     }
 
     @Override
